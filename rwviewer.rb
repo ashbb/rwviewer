@@ -3,8 +3,8 @@ require 'ruby_warrior'
 require 'green_shoes'
 
 module RW
-  def run_rw argv
-    stdin = StringIO.new "1"
+  def run_rw argv, num
+    stdin = StringIO.new num
     stdout = StringIO.new ''
     RubyWarrior::Runner.new(argv, stdin, stdout).run
     stdout.string.split(/^- turn \d* -\n/)
@@ -36,7 +36,10 @@ module RW
   end
 end
 
-Shoes.app title: 'Viewer for Ruby Warrior' do
+num = ask 'Enter: 1)Beginner 2)Intermediate'
+num = '1' unless num == '2'
+
+Shoes.app title: "Viewer for Ruby Warrior - #{num == '1' ? 'Beginner' :  'Intermediate'} Tour" do
   @turns = {}
   extend RW
 
@@ -47,7 +50,7 @@ Shoes.app title: 'Viewer for Ruby Warrior' do
         n = i + 1
         button "Level #{n}" do
           @level.text = "Level #{n}"
-          @turns[n] = run_rw(["-l", n.to_s]) unless @turns[n]
+          @turns[n] = run_rw(["-l", n.to_s], num) unless @turns[n]
           @msg.text = @turns[n][0]
           @sw.text == 'auto' ? auto(n) :  sbs(n)
         end
@@ -58,9 +61,9 @@ Shoes.app title: 'Viewer for Ruby Warrior' do
   end
 
   nostroke
-  rect 75, 75, 450, 350, fill: white, curve: 20
-  flow margin: [100, 50, 0, 0] do
-    flow width: 400, height: 300 do
+  rect 50, 50, 500, 400, fill: white, curve: 20
+  flow margin: [75, 25, 0, 0] do
+    flow width: 450, height: 350 do
       @level = subtitle
       @msg = para
     end

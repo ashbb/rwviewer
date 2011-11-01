@@ -34,8 +34,3 @@ Usage
 - At first, you have to reach the top of the tower.
 - Copy the rwviewer.rb file to the same directory of your profile directory (rubywarrior).
 - ruby rwviewer.rb
-
-Note
-----
-
-You can use this tiny Green Shoes app for Biginner's tower only so far.
