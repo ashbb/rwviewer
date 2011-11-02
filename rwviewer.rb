@@ -1,4 +1,4 @@
-﻿require 'stringio'
+require 'stringio'
 require 'ruby_warrior'
 require 'green_shoes'
 
@@ -39,7 +39,7 @@ end
 num = ask 'Enter: 1)Beginner 2)Intermediate'
 num = '1' unless num == '2'
 
-Shoes.app title: "Viewer for Ruby Warrior - #{num == '1' ? 'Beginner' :  'Intermediate'} Tour" do
+Shoes.app title: "Viewer for Ruby Warrior - #{num == '1' ? 'Beginner' :  'Intermediate'} Tower" do
   @turns = {}
   extend RW
 
@@ -50,7 +50,7 @@ Shoes.app title: "Viewer for Ruby Warrior - #{num == '1' ? 'Beginner' :  'Interm
         n = i + 1
         button "Level #{n}" do
           @level.text = "Level #{n}"
-          @turns[n] = run_rw(["-l", n.to_s], num) unless @turns[n]
+          @turns[n] = run_rw(['-l', n.to_s, '-t', '0'], num) unless @turns[n]
           @msg.text = @turns[n][0]
           @sw.text == 'auto' ? auto(n) :  sbs(n)
         end
@@ -61,7 +61,7 @@ Shoes.app title: "Viewer for Ruby Warrior - #{num == '1' ? 'Beginner' :  'Interm
   end
 
   nostroke
-  rect 50, 50, 500, 400, fill: white, curve: 20
+  rect 50, 50, 500, 430, fill: white, curve: 20
   flow margin: [75, 25, 0, 0] do
     flow width: 450, height: 350 do
       @level = subtitle
