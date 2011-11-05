@@ -6,7 +6,12 @@ It shows your [Ruby Warrior](https://github.com/ryanb/ruby-warrior) log a little
 
 It has two modes, `auto` and `step by step`, which will be switched by a mouse click. 
 In step by step mode, you can use `Up` arrow key and `Down` arrow key. 
-Watch [this](http://www.rin-shun.com/shoes/rwviewer.swf.html) and [this](http://www.rin-shun.com/shoes/rwviewer2.swf.html).
+Watch [this](http://www.rin-shun.com/shoes/rwviewer.swf.html) and [this](http://www.rin-shun.com/shoes/rwviewer2.swf.html)and [this](http://www.rin-shun.com/shoes/rwviewer3.swf.html).
+
+Snapshot (rwviewer3)
+--------------------
+
+![rwviewer3.png](http://github.com/ashbb/rwviewer/raw/master/rwviewer3.png)
 
 Snapshot (rwviewer2)
 --------------------
@@ -31,14 +36,13 @@ You can see my Ruby Warrior's log with rwviewer.
 
 - git clone git://github.com/ashbb/rwviewer.git
 - cd rwviewer
-- ruby rwviewer.rb (or rwviewer2.rb)
+- ruby rwviewer.rb (or rwviewer2.rb or rwviewer3.rb)
 
 Usage
------
+------
 
-- At first, you have to reach the top of the tower.
-- Copy the rwviewer.rb file (or rwviewer2.rb) to the same directory of your profile directory (rubywarrior).
-- ruby rwviewer.rb (or rwviewer2.rb)
+- At first, use rwviewer3.rb.
+- After once you reached to the top of the tower, you can use rwviewer.rb or rwviewer2.rb.
 
 Note
 ----

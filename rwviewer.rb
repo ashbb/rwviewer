@@ -1,38 +1,12 @@
 require 'stringio'
 require 'ruby_warrior'
 require 'green_shoes'
+require_relative 'rw'
 
 module RW
-  def run_rw argv, num
-    stdin = StringIO.new num
-    stdout = StringIO.new ''
-    RubyWarrior::Runner.new(argv, stdin, stdout).run
-    stdout.string.split(/^- turn \d* -\n/)
-  end
-
-  def auto n
-    e = every do |i|
-      @msg.text = code("- turn #{i} -\n" + @turns[n][i])
-      flush
-      e.stop if i > @turns[n].length - 2
-    end
-  end
-
-  def sbs n
-    i, len = 0, @turns[n].length
-    keypress do |k|
-      case k
-      when 'Up'
-        i -= 1
-        i = len - 1 if i <= 0
-      when 'Down'
-        i += 1
-        i = 1 if i == len
-      else
-      end
-      @msg.text = code("- turn #{i} -\n" + @turns[n][i])
-      flush
-    end
+  def show_turn n, i
+    @msg.text = code("- turn #{i} -\n" + @turns[n][i])
+    flush
   end
 end
 
